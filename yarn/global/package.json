@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@prettier/plugin-lua": "^0.0.1",
+    "create-next-app": "^13.1.5",
+    "diagnostic-languageserver": "^1.14.2",
+    "prettier": "^2.8.1"
+  }
+}
