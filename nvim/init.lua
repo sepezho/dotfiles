@@ -19,6 +19,20 @@ vim.opt.rtp:prepend(lazypath)
 -- add tabs plugin
 -- add neotree toggle on start
 -- add grovebox
+vim.opt.clipboard = "unnamedplus"
+-- Function to check if yank is to the system clipboard and use osc52
+local function copy()
+  if vim.v.event.operator == 'y' and vim.v.event.regname == '+' then
+    require('osc52').copy_register('+')
+  end
+end
+
+-- Create an autocmd that triggers on TextYankPost event
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = copy,
+})
+
+
 
 require("core.options")
 require("core.keymaps")
